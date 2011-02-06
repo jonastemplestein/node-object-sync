@@ -1,7 +1,7 @@
 {
     "name": "object-sync",
     "version": "0.1.0",
-    "description": "synchronize models accross many connected clients.",
+    "description": "Transparently synchronize objects accross many connected clients.",
     "author": {
         "name": "Jonas Huckestein",
         "email": "jonas.huckestein@gmail.com",
