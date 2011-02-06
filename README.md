@@ -31,13 +31,13 @@ Note: All examples and the implementation are in [coffee-script](http://jashkena
 
 ***On the server***
 
-<script src="https://gist.github.com/813251.js"> </script>
+[[gist.github.com/813251]]
 
 ***On the client***
 
     The client will automatically reconnect if the server connection dies. For a more detailed, runnable example check out the test/ directory.
 
-<script src="https://gist.github.com/813250.js"> </script>
+[[gist.github.com/813250]]
     
 
 TODO:
