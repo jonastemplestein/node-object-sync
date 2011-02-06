@@ -31,7 +31,7 @@ sync = ObjectSync.listen server,
       for prop, val of obj when objects[obj.id][prop] isnt val
         same = false
         objects[obj.id][prop] = val
-      callback null, obj, not same
+      callback null, objects[obj.id], not same
     else callback
       code: 'invalid_id'
       
