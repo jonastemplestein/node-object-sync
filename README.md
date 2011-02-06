@@ -1,6 +1,8 @@
 node-object-sync
 ================
 
+[Check out a running demo of the test/ directory here](http://98.158.186.218:8087/)
+
 node-object-sync transparently synchronizes objects across multiple connected clients. It's a low-level library that aims to take the pain out of synchronizing state across clients.
 
 Many webapps and games offer a 'multiplayer' components (for webapps that would be called collaboration or social feature). Many such apps use socket.io for realtime communication and some other framework on top of that to manage models (views, controllers and whatever else). Oftentimes the glue between model-land and socket.io on the client and socket.io and the database on the server is a bunch of complicated custom code. node-object-sync is an attempt to replace that code with something more generic.
@@ -31,8 +33,6 @@ Here's a list of bullet points:
 
 TL;DR show me some code
 ======================
-
-[Check out a running demo of the test/ directory here](http://98.158.186.218:8087/)
 
 ***On the server***
 
