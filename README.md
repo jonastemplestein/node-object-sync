@@ -125,9 +125,9 @@ TODO:
 
 Some take 5 minutes and some take 5 days.
 
+ * Make changes about properties instead of resending the entire object. (this will fix the jerkiness in the demo if you go in two directions at once)
  * Consider moving a little bit of model layer magic into the client lib. For instance, objects should only be updated if they have actually changed.
  * Don't expose the entire world to every client. Let client's subscribe to objects.
- * Scale the whole shebang to MMORPG levels using RabbitMQ as routing backend
  * Don't use new objects liberally. Use exactly one reference to an object with a certain id and modify it if it changes. This should prevent a few bugs and make an eventual GC routine easier to implement.
  * Let client have different state from global state with eventual consistency and rollbacks (local storage and offline mode FTW)
  * Handle collection properties (lists, sets)
@@ -139,9 +139,10 @@ Some take 5 minutes and some take 5 days.
  * What if not all objects are visible in the same way to all clients?
  * Deal with custom socket.io endpoints (trivial)
  * Buffer communication for N minutes and resend all communication if clients drop for a little bit.
- * buffer requests on client if disconnected
+ * Buffer and resend requests on client if disconnected
  * Don't use /socket.io endpoint by default
  * Serve client files from server
+ * Scale the whole shebang to MMORPG levels using RabbitMQ as routing backend
  
 
 License
