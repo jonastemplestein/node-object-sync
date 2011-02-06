@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+        <style type="text/css" media="screen">
+            @font-face { font-family: Silkscreen; src: url('slkscr.ttf'); }
+            @font-face { font-family: Silkscreen; font-weight: bold; src: url('slkscrb.ttf'); }
+            
+            body {
+                font-family: Silkscreen, Arial, Sans-Serif;
+                background: #306611;
+                padding: 0px;
+                margin: 0px;
+                overflow: scroll;
+            }
+            h1 {
+                background: white;
+                color: #777;
+                height: 30px;
+                border-bottom: double 8px #882200;
+                padding: 10px;
+            }
+            small {
+                font-size: 14px;
+                color: black;
+            }
+            #arena {
+                overflow: scroll;
+                height: 94%;
+                position: relative;
+            }
+            #talk {
+                position: absolute;
+                left: 25%;
+                width: 50%;
+                bottom: 10%;
+                height: 50px;
+                border: solid 3px #661100;
+                background: white;
+                display: none;
+            }
+            #talk .say {
+                position: absolute;
+                color: white;
+                font-size: 45px;
+                left: -120px;
+                top: 4px;
+            }
+            #talk input {
+                width: 100%;
+                padding: 4px 2% 0px 2%;
+                height: 100%;
+                margin: 0px;
+                font-size: 45px;
+                font-family: Silkscreen;
+                font-weight: bold;
+                border: none;
+                color: #777;
+            }
+            .player {
+                position: absolute;
+                font-weight: bold;
+                text-align:center;
+            }
+            .player.me .says{
+                border-color: #882200;
+                    color: #882200;
+            }
+            .player .says {
+                background: white;
+                border: solid 2px #cecece;
+                width: 150px;
+                padding: 3px;
+                overflow: hidden;
+                margin: 0px 0px 60px 40px;
+            }
+            .avatar {
+                position: absolute;
+                bottom: 0px;
+                width: 55px;
+                height: 96px;
+                background: url(sprites.png) no-repeat;
+            }
+            .avatar_1 { background-position: 0px 0px; }
+            .avatar_2 { background-position: -55px 0px; }
+            .avatar_3 { background-position: -110px 0px; }
+            .avatar_4 { background-position: -165px 0px; }
+            .avatar_5 { background-position: -220px 0px; }
+            
+        </style>
+    </head>
+    <body>
+        <h1>Walk and talk <small>arrow keys to move, any other key to talk</small></h1>
+        
+        <div id="talk">
+            <div class="say">Say</div> <input type="text" />
+        </div>
+        
+        <script src="socket.io/socket.io.js"></script> 
+        <script src="/coffee/object-sync-client.js"></script> 
+        <script src="/coffee/demo.js"></script> 
+    </body>
+</html>

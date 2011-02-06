@@ -1,0 +1,21 @@
+{
+    "name": "object-sync",
+    "version": "0.1.0",
+    "description": "synchronize models accross many connected clients.",
+    "author": {
+        "name": "Jonas Huckestein",
+        "email": "jonas.huckestein@gmail.com",
+        "url": "http://thezukunft.com"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "http://github.com/jonashuckestein/node-object-sync.git",
+        }
+    ],
+    "main": "./lib/index.js",
+    "dependencies": {
+        "coffee-script": ">= 1.0.0",
+        "socket.io": ">=0.6.8"
+    }
+}
