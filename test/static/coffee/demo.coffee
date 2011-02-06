@@ -28,20 +28,21 @@ installHandlers = ->
   arrow = {left: 37, up: 38, right: 39, down: 40}
   $(window).keydown (e) ->
     key = e.keyCode or e.which
+    old_player = mePlayer()
     player =
-      id: mePlayer().id
+      id: old_player.id
     switch key
       when arrow.up
-        player.y -= 10
+        player.y = old_player.y - 10
         sync.save player
       when arrow.right
-        player.x += 10
+        player.x = old_player.x + 10
         sync.save player
       when arrow.down
-        player.y += 10
+        player.y = old_player.y + 10
         sync.save player
       when arrow.left
-        player.x -= 10
+        player.x = old_player.x - 10
         sync.save player
       else
         showTalk()
