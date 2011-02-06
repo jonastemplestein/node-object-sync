@@ -32,6 +32,8 @@ Here's a list of bullet points:
 TL;DR show me some code
 ======================
 
+[Check out a running demo of the test/ directory here](http://98.158.186.218:8087/)
+
 ***On the server***
 
     ObjectSync = require 'object-sync'
