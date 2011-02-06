@@ -28,8 +28,9 @@ sync = ObjectSync.listen server,
   update: (obj, sid, callback) ->
     if objects[obj.id]
       same = true
-      same = same and (objects[obj.id][prop] is val) for prop, val of obj
-      objects[obj.id] = obj
+      for prop, val of obj when objects[obj.id][prop] isnt val
+        same = false
+        objects[obj.id][prop] = val
       callback null, obj, not same
     else callback
       code: 'invalid_id'
