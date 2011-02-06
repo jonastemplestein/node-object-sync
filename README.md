@@ -31,13 +31,88 @@ Note: All examples and the implementation are in [coffee-script](http://jashkena
 
 ***On the server***
 
-[[gist.github.com/813251]]
+    ObjectSync = require 'object-sync'
+    server = http.createServer()
+
+    # Hook an ObjectSync instance up to our server.
+    # Define a bunch of handlers for CRUD events. The handlers are
+    # async because they'll likely interact with some kind of database
+    sync = ObjectSync.listen server, 
+
+      # a client wants to delete object with id id
+      destroy: (id, client_sid, callback) ->
+        console.log "client #{client_sid} has destroyed object #{id}"
+        callback null # sends events to clients
+
+      # a client wants to update an object
+      update: (obj, client_sid, callback) ->
+        # sends an error to the client requesting the update and no
+        # message to all other clients
+        callback
+          code: 'invalid_id'
+
+      # a client wants to create an object
+      create: (obj, client_sid, callback) ->
+        callback null, obj
+
+      # a client requests a list of objects
+      fetch: (ids, client_sid, callback) ->
+        results = [] # ...
+        callback null, results
+
+    # The following functions let the server pro-actively change things
+    sync.save obj, (err, obj) -> # ...
+    sync.destroy obj, (err, obj) -> # ...
+    sync.fetch ids, (err, objs) -> # ...
+    sync.update obj, (err, obj) -> # ...
 
 ***On the client***
 
     The client will automatically reconnect if the server connection dies. For a more detailed, runnable example check out the test/ directory.
 
-[[gist.github.com/813250]]
+    <script src="socket.io/socket.io.js"></script> 
+    <script src="/coffee/object-sync-client.js"></script> 
+    <script>
+        sync = new ObjectSync();
+        sync.connect();
+        sync.on('update', function(obj) {
+            switch(obj.type) {
+                case 'player':
+                    drawPlayer(obj);
+                    break;
+                case 'score':
+                    updateScore(obj);
+                    break;
+                // ... etc
+            }
+        });
+        sync.on('destroy', function(id){/*...*/});
+        sync.on('create', function(obj){/*...*/});
+
+        # Create a new object (saving something without an id)
+        sync.save({
+            is_this_new: 'yes'
+        }, function(err, obj) {
+            // returns either an error or a server-provided object
+            // if there was no error, a 'create' event will fire here
+            // and on every other connected client
+        });
+        sync.save({
+            id: 5,
+            is_this_new: false,
+            is_this_updated: true
+        }, function(err, obj){
+            // updates an object
+        });
+        sync.fetch([1,2,3,4], function(err, results) {
+            // fetches objects 1,2,3 and 4
+        });
+        sync.destroy(1, function(err) {
+            // if there was no error, object 1 is now destroyed
+            // a 'destroy' event will fire shortly
+        })
+        sync.allObjects(); // returns a map of all objects on the client
+    </script>
     
 
 TODO:
