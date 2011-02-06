@@ -28,8 +28,8 @@ installHandlers = ->
   arrow = {left: 37, up: 38, right: 39, down: 40}
   $(window).keydown (e) ->
     key = e.keyCode or e.which
-    player = mePlayer()
-    player = $.extend({}, player)
+    player =
+      id: mePlayer().id
     switch key
       when arrow.up
         player.y -= 10
