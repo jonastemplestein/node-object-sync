@@ -1,6 +1,6 @@
 {
     "name": "object-sync",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Transparently synchronize objects accross many connected clients.",
     "author": {
         "name": "Jonas Huckestein",
@@ -13,7 +13,7 @@
             "url": "http://github.com/jonashuckestein/node-object-sync.git",
         }
     ],
-    "main": "./lib/index.js",
+    "main": "./index.js",
     "dependencies": {
         "coffee-script": ">= 1.0.0",
         "socket.io": ">=0.6.8"
