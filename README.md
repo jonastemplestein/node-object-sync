@@ -1,9 +1,15 @@
 node-object-sync
 ================
 
-node-object-sync makes 
+node-object-sync transparently synchronizes objects across multiple connected clients. It's a low-level library that aims to take the pain out of synchronizing state across clients.
 
-This is the first cut implementation that I decided to make. While there's still a lot to do, 
+Many webapps and games offer a 'multiplayer' components (for webapps that would be called collaboration or social feature). Many such apps use socket.io for realtime communication and some other framework on top of that to manage models (views, controllers and whatever else). Oftentimes the glue between model-land and socket.io on the client and socket.io and the database on the server is a bunch of complicated custom code. node-object-sync is an attempt to replace that code with something more generic.
+
+This is the first cut implementation. While there's still a lot to do, I thing this is already pretty useful. Check out the test directory for a little game that that has surprisingly little multiplayer networking code :)
+
+Note: All examples and the implementation are in [coffee-script](http://jashkenas.github.com/coffee-script/). CoffeeScript is great and you should probably use it. If you don't want to use CoffeeScript, you can easily convert it using the 'Try CoffeeScript' button on the aforementioned website.
+
+***Any contributions are more than welcome***
 
 Design Notes
 ============
@@ -23,11 +29,8 @@ Here's a list of bullet points:
  * When changing objects, the client can pass a callback that gets executed after a response for that request has come through. In addition to that update, create and destroy events will fire.
  * Is database agnostic on the server side. You can even not use any database at all (use it to sync in-session objects among multiple clients)
 
-
 TL;DR show me some code
 ======================
-
-Note: All examples and the implementation are in [coffee-script](http://jashkenas.github.com/coffee-script/). CoffeeScript is great and you should probably use it. If you don't want to use CoffeeScript, you can easily convert it using the 'Try CoffeeScript' button on the aforementioned website.
 
 ***On the server***
 
@@ -138,8 +141,6 @@ Some take 5 minutes and some take 5 days.
  * Don't use /socket.io endpoint by default
  * Serve client files from server
  
-***Most importantly, the design of this software shall be such that all the above TODOs can be implemented in the application layer***
-
 
 License
 =======
