@@ -7,11 +7,9 @@
         "email": "jonas.huckestein@gmail.com",
         "url": "http://thezukunft.com"
     },
-    "repositories": {
-        {
+    "repository": {
             "type": "git",
-            "url": "http://github.com/jonashuckestein/node-object-sync.git",
-        }
+            "url": "http://github.com/jonashuckestein/node-object-sync.git"
     },
     "main": "./index.js",
     "dependencies": {
