@@ -5,7 +5,7 @@ console.trace or= ->
 console.dir or= ->
 
 if not Array.indexOf
-  Array.prototype.indexOf = (obj) ->
+  Array::indexOf = (obj) ->
     for i in [0..@length]
       if this[i] is obj
         return i
